@@ -3,21 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast Website</title>
+    <title>Weather Forecast</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Weather Forecast</h1>
-        <h6>created by sanesh </h6>
-        <div class="search-box">
-            <input type="text" class="city-input" placeholder="Enter city name">
-            <button class="search-btn">Search</button>
-        </div>
-        <div class="current-weather"></div>
-        <div class="forecast-title">5-Day Forecast</div>
-        <div class="weather-forecast"></div>
+    <div class="header">
+        <h1>🌤️ Weather Forecast</h1>
     </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" id="locationInput" placeholder="Enter city name..." value="patna">
+        <button class="search-btn" onclick="searchWeather()">Search</button>
+        <button class="location-btn" onclick="getCurrentLocation()">📍 Current Location</button>
+    </div>
+
+    <div class="weather-card" id="weatherCard">
+        <div class="location-name" id="locationName">Patna, IN</div>
+        
+        <div class="weather-icon">🌥️</div>
+        
+        <div class="temperature-toggle">
+            <button class="temp-btn active" id="celsiusBtn" onclick="toggleTemperature('celsius')">°C</button>
+            <button class="temp-btn" id="fahrenheitBtn" onclick="toggleTemperature('fahrenheit')">°F</button>
+        </div>
+        
+        <div class="current-temp" id="currentTemp">36°C</div>
+        
+        <div class="weather-description" id="weatherDescription">Few Clouds</div>
+        
+        <div class="weather-details">
+            <div class="detail-item">
+                <div class="detail-label">Wind Speed</div>
+                <div class="detail-value" id="windSpeed">25 km/h</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Humidity</div>
+                <div class="detail-value" id="humidity">43%</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Pressure</div>
+                <div class="detail-value" id="pressure">999 hPa</div>
+            </div>
+        </div>
+        
+        <div class="sun-times">
+            <div class="sun-item">
+                <div class="sun-label">Sunrise</div>
+                <div class="sun-time" id="sunrise">05:00 AM</div>
+            </div>
+            <div class="sun-item">
+                <div class="sun-label">Sunset</div>
+                <div class="sun-time" id="sunset">06:44 PM</div>
+            </div>
+        </div>
+
+        <div class="graph-section">
+            <div class="graph-title">7-Day Temperature Forecast</div>
+            <div class="chart-container">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="forecast-section">
+        <div class="forecast-title">10-Day Weather Forecast</div>
+        <div class="forecast-container" id="forecastContainer">
+            </div>
+        
+        <div class="detailed-info" id="detailedInfo">
+            <div class="detailed-header">
+                <div class="detailed-date" id="detailedDate"></div>
+                <div class="detailed-temp" id="detailedTemp"></div>
+                <div class="detailed-desc" id="detailedDesc"></div>
+            </div>
+            
+            <div class="detailed-grid">
+                <div class="detailed-item">
+                    <div class="detailed-label">Feels Like</div>
+                    <div class="detailed-value" id="detailedFeelsLike"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Wind Speed</div>
+                    <div class="detailed-value" id="detailedWind"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Humidity</div>
+                    <div class="detailed-value" id="detailedHumidity"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Pressure</div>
+                    <div class="detailed-value" id="detailedPressure"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">UV Index</div>
+                    <div class="detailed-value" id="detailedUV"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Visibility</div>
+                    <div class="detailed-value" id="detailedVisibility"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Sunrise</div>
+                    <div class="detailed-value" id="detailedSunrise"></div>
+                </div>
+                <div class="detailed-item">
+                    <div class="detailed-label">Sunset</div>
+                    <div class="detailed-value" id="detailedSunset"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
