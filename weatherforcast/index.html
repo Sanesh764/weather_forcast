@@ -13,15 +13,17 @@
     </div>
 
     <div class="search-container">
-        <input type="text" class="search-input" id="locationInput" placeholder="Enter city name..." value="patna">
-        <button class="search-btn" onclick="searchWeather()">Search</button>
-        <button class="location-btn" onclick="getCurrentLocation()">📍 Current Location</button>
+        <input type="text" class="search-input" id="locationInput" placeholder="Enter city name..." aria-label="City name">
+        <button class="search-btn" id="searchBtn" onclick="searchWeather()" aria-label="Search weather">Search</button>
+        <button class="location-btn" id="geoBtn" onclick="getCurrentLocation()" aria-label="Use current location">📍 Current Location</button>
     </div>
+
+    <div id="errorBanner" class="error-banner" role="alert" style="display:none"></div>
 
     <div class="weather-card" id="weatherCard">
         <div class="location-name" id="locationName">Patna, IN</div>
         
-        <div class="weather-icon">🌥️</div>
+        <div class="weather-icon"><img id="weatherIcon" src="" alt="Weather icon" style="width:80px;height:80px;display:none"></div>
         
         <div class="temperature-toggle">
             <button class="temp-btn active" id="celsiusBtn" onclick="toggleTemperature('celsius')">°C</button>
@@ -59,7 +61,7 @@
         </div>
 
         <div class="graph-section">
-            <div class="graph-title">7-Day Temperature Forecast</div>
+            <div class="graph-title">5-Day Temperature Trend</div>
             <div class="chart-container">
                 <canvas id="temperatureChart"></canvas>
             </div>
@@ -67,7 +69,7 @@
     </div>
 
     <div class="forecast-section">
-        <div class="forecast-title">10-Day Weather Forecast</div>
+        <div class="forecast-title">5-Day Weather Forecast</div>
         <div class="forecast-container" id="forecastContainer">
             </div>
         
