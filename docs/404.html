@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting…</title>
+    <script>
+      // Handle GitHub Pages single-page-app style deep links
+      (function() {
+        var target = '/weather_forcast/weatherforcast/index.html';
+        var hash = window.location.hash;
+        if (hash && hash.length > 1) {
+          target += hash;
+        }
+        window.location.replace(target);
+      })();
+    </script>
+</head>
+<body>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/weather_forcast/weatherforcast/index.html">
+      <p>Redirecting to <a href="/weather_forcast/weatherforcast/index.html">/weather_forcast/weatherforcast/index.html</a>…</p>
+    </noscript>
+</body>
+</html>
+
